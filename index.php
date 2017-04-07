@@ -10,7 +10,10 @@ class Node
 
     // methods
     public function addNode($i) {
-
+$i = $this->i++;
+//echo '</br>';
+//echo 'Node' . $this->i . '<a href="?command=delete&node=$i"> delete</a><br />';
+$this->output();
     }
 
 
@@ -21,6 +24,9 @@ class Node
 
     public function output() {
     
+    echo 'Node' . $this->i . '<a href="?command=delete&node=$i"> delete</a><br />';
+    
+
     }
 
 
@@ -40,5 +46,37 @@ class BranchNode extends Node{
 	
 }//BranchNode
 
+//echo '<h3>Nodes list:</h3>' . '<br>';
 
+$node = new Node();
+
+//$node->output();
+$node->addNode($i);
+$node->addNode($i);
+$node->addNode($i);
+$node->addNode($i);
+
+//$node->addNode($i);
+
+//echo '<a href="?command=add">add new node</a>';
+
+
+/*
+echo '<pre>';
+print_r(get_defined_vars());
+echo '</pre>';
+*/
+
+
+//echo $GLOBALS;
+//var_dump($GLOBALS["node"]);
+
+//var_dump(get_class());
+
+//var_dump($node);
+
+echo $node->child;
+unset($node);
+echo '<br>';
+echo $node->child . "JJJ";
 ?> 
