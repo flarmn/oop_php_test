@@ -5,6 +5,7 @@
 class Node
 {
     // properties
+    public $i = 1;
     public $child = 'значение по умолчанию';
 
     // methods
@@ -19,7 +20,7 @@ class Node
 
 
     public function output() {
-
+    
     }
 
 
@@ -30,12 +31,12 @@ class Node
 }//Node
 
 
-class RootNode{
+class RootNode extends Node{
 
 }//RootNode
 
 
-class BranchNode{
+class BranchNode extends Node{
 	
 }//BranchNode
 
