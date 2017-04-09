@@ -1,82 +1,105 @@
  <?php
 
+class Node{
+    public $child = 0;
+
+    public function addNode(){
+    }// addNode
+
+public function deleteNode($i){
+}// deleteNode
+
+public function output(){
+}//output
 
 
-class Node
-{
-    // properties
-    public $i = 1;
-    public $child = 'значение по умолчанию';
+}// Node
 
-    // methods
-    public function addNode($i) {
-$i = $this->i++;
-//echo '</br>';
-//echo 'Node' . $this->i . '<a href="?command=delete&node=$i"> delete</a><br />';
-$this->output();
-    }
-
-
-    public function deleteNode($i) {
-
-    }
-
-
-    public function output() {
-    
-    echo 'Node' . $this->i . '<a href="?command=delete&node=$i"> delete</a><br />';
-    
-
-    }
-
-
-     public function getType() {
-
-    }
-
-}//Node
-
-
-class RootNode extends Node{
-
-}//RootNode
-
-
-class BranchNode extends Node{
-	
-}//BranchNode
-
-//echo '<h3>Nodes list:</h3>' . '<br>';
-
-$node = new Node();
-
-//$node->output();
-$node->addNode($i);
-$node->addNode($i);
-$node->addNode($i);
-$node->addNode($i);
-
-//$node->addNode($i);
-
-//echo '<a href="?command=add">add new node</a>';
 
 
 /*
-echo '<pre>';
-print_r(get_defined_vars());
-echo '</pre>';
+interface HitPoint {
+    public abstract function getType();
+}
 */
 
 
-//echo $GLOBALS;
-//var_dump($GLOBALS["node"]);
 
-//var_dump(get_class());
+//class RootNode extends Node{
+    //final class Product
+final class RootNode extends Node
 
-//var_dump($node);
+{
 
-echo $node->child;
-unset($node);
-echo '<br>';
-echo $node->child . "JJJ";
+  
+    private static $instance;
+
+  
+
+    public $a;
+
+
+   
+    public static function getInstance()
+    {
+        if (!(self::$instance instanceof self)) {
+            self::$instance = new self();
+        }
+        return self::$instance;
+    }
+
+   
+    private function __construct()
+    {
+    }
+
+    /**
+     * Клонирование запрещено
+     */
+    private function __clone()
+    {
+    }
+
+    /**
+     * Сериализация запрещена
+     */
+    private function __sleep()
+    {
+    }
+
+    /**
+     * Десериализация запрещена
+     */
+    private function __wakeup()
+    {
+    }
+}
+
+/*
+ * =====================================
+ *           USING OF SINGLETON
+ * =====================================
+ */
+
+$firstProduct = RootNode::getInstance();
+$secondProduct = RootNode::getInstance();
+
+$firstProduct->a = 1;
+$secondProduct->a = 2;
+
+print_r($firstProduct->a);
+// 2
+print_r($secondProduct->a);
+
+
+//echo 'Zuzu';
+
+
+class BrancheNode extends Node{
+
+}
+
+
+
+
 ?> 
